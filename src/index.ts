@@ -8,9 +8,9 @@ wss.on("connection", (socket, req) => {
     socket.on("message", (data) => {
         try {
             const obj = JSON.parse(data.toString());
-            if (obj.topic === "digital-out") {
+            if (obj.topic === "digital/out") {
                 const data = JSON.stringify({
-                    topic: "digital-in",
+                    topic: "digital/in",
                     payload: {
                         channel: 0,
                         value: obj.payload.value
